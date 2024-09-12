@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Insert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="">
+        <%-include('../header/headerBackToHome')%>
+    </div>
+    <a href="/" class="rounded-[10%] border px-5 py-1 absolute top-16 left-4"><i class="fa-solid fa-arrow-left"></i></a>
+    <%let cl_ass = ""%>
+    <%let attendance_date = ""%>
+    <%if(errData != null){%>
+        <%cl_ass = errData.cla_ss %>
+        <%attendance_date = errData.attendance_date %>
+           
+    <%}%>
+
+    <div class=" w-full">
+        <div class="container w-full h-[92vh] flex justify-center flex-col items-center">
+
+            <form action="/student_attendance" method="post" class="w-[60%]  flex md:flex-row flex-col gap-2 items-center mb-12 ">
+                <p class="text-red-700 font-bold"> Select Class </p>
+                <select name="cla_ss" id="" class="w-[90%] md:w-[40%] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 ">
+                    <option value="" disabled selected>* Select Class</option>
+                    <option value="Class 1">Class 1</option>
+                    <option value="Class 2">Class 2</option>
+                    <option value="Class 3">Class 3</option>
+ 
+                   </select>
+                   <p class=" text-red-700 font-bold">Select Date</p>
+                   <input class="md:w-[20%] w-[90%] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2" type="date" placeholder="Attendance Date" name="attendance_date" id="attendance_date">
+
+                   
+                    <input class=" cursor-pointer text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-[12px] px-5 py-2.5 text-center me-2 mb-2transition transform ease-in-out duration-300 hover:scale-110" type="submit" >
+                   
+            </form>
+            <div class="flex flex-col md:flex-row justify-center items-center md:justify-around pl-3">
+                <p class=" text-red-700 font-medium md:pl-[420px]"><%=cl_ass%></p>
+                <p class=" text-red-700 font-medium "><%=attendance_date%></p>
+            </div>
+
+
+
+
+            <div class="container  w-3/4 h-[60vh]   ">
+                <div class="">
+                   
+                     <form action="/searchStudentRollNo" method="post" class="w-full flex md:flex-row flex-col gap-5 justify-end my-0 ">
+                        
+                        <input class="md:w-[25%] w-[98%] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 " type="text" placeholder="Search Student Roll No" name="Student_id">
+                        
+                        <select name="class__" id="" class="md:w-[25%] w-[98%] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 ">
+                            <option value="" disabled selected>* Select Class</option>
+                            <option value="Class 1">Class 1</option>
+                            <option value="Class 2">Class 2</option>
+                            <option value="Class 3">Class 3</option>
+                           
+                            
+                           </select>
+                        <input class=" cursor-pointer md:w-[7%] w-[98%] text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-[12px] px-5 py-2.5 text-center me-2 mb-2transition transform ease-in-out duration-300 hover:scale-110" type="submit" >
+                        
+                    </form>
+                </div>
+                <div class="overflow-auto max-h-96 border border-gray-300 mt-3">
+                    <table class="min-w-full  divide-gray-200">
+                        <thead class="sticky top-0 bg-red-400 ">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Student Id</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">student Name</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">class</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Attendance date</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Narration</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <%if(result.length >0){%>
+                                <%result.forEach((element)=>{%>
+                                    <tr>
+                                        <td class="px-6 py-4 "><%=element.student_rollNo%></td>
+                                        <td class="px-6 py-4 "><%=element.student_name%></td>
+                                        <td class="px-6 py-4 "><%=element.cla_ss%></td>
+                                        <td class="px-6 py-4 "><%=element.attendance_date%></td>
+                                        <td class="px-6 py-4 flex justify-start"><button class="statusPAndA px-2 py-1 rounded-[5px]"><%=element.st_atus%></button></td>
+                                        <td class="px-6 py-4 "><%=element.narration%></td>
+                                    </tr>
+                                <% })%>
+
+                            <%}else{%>
+            
+                                <td colspan="6 " class="text-red-800 border p-2">No data found</td>
+            
+                            <%}%>    
+                            
+                        </tbody>
+                    </table>
+                </div>
+  
+                
+            </div>
+        </div>
+    </div>
+        
+
+
+   <script>
+        let currentDate = new Date().toJSON().slice(0, 10); 
+        document.querySelector('#attendance_date').value = currentDate ;
+
+        let presentAbsents = document.querySelectorAll('.statusPAndA');
+
+    presentAbsents.forEach(presentAbsent => {
+        if (presentAbsent.innerText == "Present") {
+            presentAbsent.style.background = '#118966';
+            presentAbsent.style.color = 'white';
+            
+        }
+        if (presentAbsent.innerText == "Absent") {
+            presentAbsent.style.background = '#e60f43';
+            presentAbsent.style.color = 'white';
+        }
+    });
+        
+   </script>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Insert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="">
+        <%-include('../header/headerBackToHome')%>
+    </div>
+
+    <a href="/" class="rounded-[10%] border px-5 py-1 absolute top-16 left-4"><i class="fa-solid fa-arrow-left"></i></a>
+    
+    <% let Student_Roll_No = "" %>
+    <% let Student_Name = "" %>
+    <% let Father_Name = "" %>
+    <% let Mother_Name = "" %>
+    <% let gender = "" %>
+    <% let Date_OF_Birth = "" %>
+    <% let Class = "" %>
+    <% let Section = "" %>
+    <% let Email = "" %>
+    <% let father_mobile_no = "" %>
+    <% let mother_mobile_no = "" %>
+    <% let img = "" %>
+    <% let Password = "" %>
+
+    <% if(errdata != null){ %>
+
+        <% Student_Roll_No = errdata.Student_Roll_No %>
+        <% Student_Name = errdata.Student_Name %>
+        <% Father_Name = errdata.Father_Name %>
+        <% Mother_Name = errdata.Mother_Name %>
+        <% gender = errdata.gender %>
+        <% Date_OF_Birth = errdata.Date_OF_Birth %>
+        <% Class = errdata.Class %>
+        <% Section = errdata.Section %>
+        <% Email = errdata.Email %>
+        <% father_mobile_no = errdata.father_mobile_no %>
+        <% mother_mobile_no = errdata.mother_mobile_no %>
+        <% img = errdata.img %>
+        <% Password = errdata.Password %> 
+   <% } %>
+
+
+    
+    <div class="w-full h-[672px] bg-[#f0f1f3] flex items-center overflow-auto">
+        <div class="w-full m-auto">
+          
+        <form action="/studentDataInsert" method="post" enctype="multipart/form-data" class="max-w-[90%]  m-auto grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-5 md:gap-y-11 pt-2 ">
+        
+            <div class=" flex justify-center text-2xl text-white col-span-full">
+                <h1 class=" border-sky-600 border-b-2 rounded-[5px] text-sky-600 transition transform ease-in duration-300 hover:scale-110 cursor-pointer hover:text-yellow-500  md:text-[20px] text-[16px]  ">Student Form </h1>
+            </div>
+
+           <div class = " flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Student Roll No" name="Student_Roll_No">
+              <p class="text-red-800"><%=errdata.Student_Roll_No%></p>
+            </div>
+           <div class = " flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Student Name" name="Student_Name">
+              <p class="text-red-800"><%=errdata.Student_Name%></p>
+            </div>
+           <div class = "  flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Father Name" name="Father_Name">
+              <p class="text-red-800"><%=errdata.Father_Name%></p>
+            </div>
+           <div class = " flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Mother Name" name="Mother_Name">
+              <p class="text-red-800"><%=errdata.Mother_Name%></p>
+            </div>
+           <div class = " flex justify-center flex-col items-center">
+              <select name="gender" id="" class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110">
+                <option value="" disabled selected>* Select male and Female</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <p class="text-red-800"><%=errdata.gender%></p>
+           </div>
+           <div class = " flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="date" placeholder="Date OF Birth" name="Date_OF_Birth">
+              <p class="text-red-800"><%=errdata.Date_OF_Birth%></p>
+            </div>
+           <div class = " flex justify-center flex-col items-center">
+              <select name="Class" id="" class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110">
+                <option value="" disabled selected>* Select Class</option>
+                <option value="class1">Class 1</option>
+                <option value="class2">Class 2</option>
+                <option value="class3">Class 3</option>
+                <!-- Add more classes as needed -->
+              </select>
+              <p class="text-red-800"><%=errdata.Class%></p>
+           </div>
+           <div class = " flex justify-center flex-col items-center">
+              <select name="Section" id="" class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110">
+                <option value="" disabled selected>* Select Section</option>
+                <option value="section A">Class 1</option>
+                <option value="section B">Class 2</option>
+                <option value="section C">Class 3</option>
+                <!-- Add more classes as needed -->
+              </select>
+              <p class="text-red-800"><%=errdata.Section%></p>
+           </div>
+           <div class = "flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Email" name="Email">
+              <p class="text-red-800"><%=errdata.Email%></p>
+            </div>
+           <div class = " flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Father Mobile No" name="father_mobile_no">
+              <p class="text-red-800"><%=errdata.father_mobile_no%></p>
+            </div>
+           <div class = " flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Mother Mobile No" name="mother_mobile_no">
+              <p class="text-red-800"><%=errdata.mother_mobile_no%></p>
+            </div>
+           <div class = "flex justify-center flex-col items-center">
+              <input class="w-3/4  text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 transition transform ease-in-out duration-300 hover:scale-110 h-fit" type="file" name="img">
+              <p class="text-red-800"><%=errdata.img%></p>
+            </div>
+           <div class = " flex justify-center flex-col items-center">
+              <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition transform ease-in-out duration-300 hover:scale-110" type="text" placeholder="Password" name="Password">
+              <p class="text-red-800"><%=errdata.Password%></p>
+            </div>
+           <div class = " flex justify-center col-span-full mb-5">
+                <input class=" cursor-pointer text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2transition transform ease-in-out duration-300 hover:scale-110" type="submit" >
+           </div>
+        </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

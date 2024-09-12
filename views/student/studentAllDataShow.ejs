@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="w-full border">
+        <div class="container max-w-[90%] m-auto flex flex-col md:flex-row justify-between items-center pb-2 md:pb-0">
+            <div class="flex items-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjRKZH2XEFHdEkiQJ6JilB54ypDt2QL5ybeA&s" alt="School Logo" class="h-14 w-14 mr-1">
+                <span class="text-red-950 text-base">School</span>
+            </div>
+            <div>
+                <form action="/StudentsearchData" class="flex flex-row gap-2" method="post" >
+                    <input class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 " type="text" placeholder="Search" name="searchInput">
+                    <input class=" text-[12px] cursor-pointer text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2transition transform ease-in-out duration-300 hover:scale-110" type="submit" >
+                <!-- <a href="/"><i class="fa-solid fa-house text-xl"></i></a> -->
+                </form>   
+            </div>
+        </div>
+    </div>
+    <a href="/" class="rounded-[10%] border px-5 py-1 absolute md:left-4 top20 left-3"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="w-full pt-11">
+        <div class="w-[90%] m-auto  grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-5 pb-5 "> 
+
+          <%if(result.length > 0 ){%>  
+           <%result.forEach((v)=>{%>
+            <div class="border bg-[#fff] shadow-[0px_0px_10px_0px_#ddd] rounded-[5px]">
+                <div class="border h-48 object-cover m-3 rounded-[10px]">
+                    <img src="<%=v.photo%>" alt="hello"
+                    class="w-full h-full object-cover rounded-[10px]">
+                </div>
+                <div class="m-3  ">
+                    <p class="text-[#777777]"> Rool No  : <span class="text-red-700 font-semibold"><%=v.student_rollNo%></span></p>
+                    <p class="">Name : <span class="text-[#5b3fd8] font-semibold"> <%=v.student_name%></span></p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]"> Father Name : <span class="font-semibold text-[#111]"> <%=v.father_name%></p></span>
+                    <p class="text-[#777777]"> Mother Name : <span class="font-semibold text-[#111]"><%=v.mother_name%></span> </p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]"> Gender : <span class="text-[#111111]"><%=v.gender%></span> </p>
+                    <p class="text-[#777777]"> Date Of Birth : <span class=" text-red-700"><%=v.date_of_birth%></span> </p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]"> Class :  <span class=" text-red-700"><%=v.Class%></span></p>
+                    <p class="text-[#777777]"> Section  : <span class=" text-b"><%=v.section%></span> </p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]">Email : <%=v.email%></p>
+                    <p class="text-[#777777]"> Father Mobile : <%=v.father_mobile_no%></p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]">Mother Mobile : <span <span class="font-semibold text-red-600"><%=v.mother_mobile_no%></span></p>
+                    
+                </div>
+            </div>
+          <% })%>
+           
+          <%}else{%>
+
+            <h1>Not Data Found </h1>
+
+          <%}%>
+
+        </div>
+    </div>
+
+    
+</body>
+</html>

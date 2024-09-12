@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none; 
+      }
+
+    </style>
+</head>
+
+<body class="">
+  <nav class="container w-full mx-auto bg-white border-b">
+    <div class="container mx-auto flex items-center justify-between w-11/12">
+
+      <div class="flex items-center">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjRKZH2XEFHdEkiQJ6JilB54ypDt2QL5ybeA&s"
+          alt="School Logo" class="h-14 w-14 mr-1">
+        <span class="text-red-950 text-base">School</span>
+      </div>
+
+
+
+
+      <div class="mr-3">
+        <i class="fa-solid fa-bars text-xl sm:text-2xl cursor-pointer" id="BarBTN"></i>
+      </div>
+
+      <div id="menuBar"
+        class="bg-[#111827] w-3/4 md:w-96  top-0 right-[-400px] h-full transition-all ease-in-out duration-500  opacity-0 fixed scrollbar-hide overflow-y-scroll">
+        <i class="fa-solid fa-xmark text-xl sm:text-2xl float-end p-2 sm:p-3 cursor-pointer text-white"
+          id="CloseBTN"></i>
+        <div class="pt-14 w-full">
+          <ul class="  flex gap-1 flex-col">
+
+            <li id="teacherToogle" class="mx-4 rounded-[10px] px-4 py-2  bg-[#111827]   hover:bg-[#2563eb] "><a
+                class="text-white" href="#"> Teachers <i class="fa-solid fa-angle-down mx-2" id="teacherArrow"></i></a>
+            </li>
+
+            <div class="w-[100%]  px-4 py-2  justify-center hidden" id="teacherContent">
+              <ul class=" w-[75%] m-auto">
+
+                <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a href="/teacherData">Teachers
+                    Master</a></li>
+                <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a href="/teacherAllShow"> View All Teachers
+                    </a></li>
+                <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a
+                    href="/teacherAttendanceShow">Teacher Attendance </a></li>
+              </ul>
+            </div>
+
+            <li class=" mx-4 rounded-[10px] px-4 py-2  bg-[#111827]   hover:bg-[#2563eb]"><a class="text-white"
+                href="/feeshMasterPage">Fees Master<i class="fa-solid fa-arrow-right mx-2"></i></a></li>
+
+            <li id="studentToogle" class="mx-4 rounded-[10px] px-4 py-2  bg-[#111827]   hover:bg-[#2563eb]"><a
+                class="text-white" href="#"> Student<i class="fa-solid fa-angle-down mx-2" id="studentArrow"></i></a>
+            </li>
+
+            <div class="w-[100%]  px-4 py-2  justify-center hidden" id="studentContent">
+              <ul class=" w-[75%] m-auto">
+
+                <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a href="/studentData">Student
+                    Master</a></li>
+                <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a href="/viewAllStudent"> View All Student
+                    </a></li>
+                <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a
+                    href="/studentAttendanceShow">Student Attendance </a></li>
+
+                <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a
+                    href="/studentFeeSubmission"> Fee Submission </a></li>
+              </ul>
+            </div>
+
+
+            <li class=" mx-4 rounded-[10px] px-4 py-2  bg-[#111827]   hover:bg-[#2563eb]"><a class="text-white" id="marks"
+                href="#">Marks <i class="fa-solid fa-angle-down mx-2" id="marksArrow"></i></a></li>
+
+                <div class="w-[100%]  px-4 py-2  justify-center hidden " id="marksContent">
+                  <ul class=" w-[75%] m-auto">
+    
+                    <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a href="/marks_Master"> Marks Master</a></li>
+                    <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a href="/subject_Master"> Subject Master
+                        </a></li>
+                    <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a href="/class_subject_add">Class Subject Add
+                        </a></li>
+                    <li class="text-white py-2 px-10  hover:bg-[#2563eb] rounded-[10px]"><a
+                        href="/marks_obtain">Marks Obtain </a></li>
+    
+                    
+                  </ul>
+                </div>
+                
+            <li class=" mx-4 rounded-[10px] px-4 py-2  bg-[#111827]   hover:bg-[#2563eb] mb-10"><a class="text-white"
+                href="#">LogOut<i class="fa-solid fa-right-from-bracket mx-2"></i></a></li>
+
+
+          </ul>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </nav>
+  <section class="bg-slate-200">
+    <div>
+      <img class="max-h-[500px]  w-full object-cover"
+        src="https://www.sskunjpura.org/admin/logged/images/homeslider/c81e728d9d4c2f636f067f89cc14862c2-Academic-Block-(SS-Kunjpura)-(1).jpg"
+        alt="">
+    </div>
+  </section>
+
+
+  <section class=" w-full p-10">
+    <div class="w-[90%] m-auto grid lg:grid-cols-4 md:grid-3 sm:grid-cols-2 gap-5">
+      <div
+        class="bg-white flex justify-center rounded-[10px] hover:shadow-[0px_-6px_3px_yellow] shadow-[0px_0px_5px_0px_skyblue]">
+        <a class="p-10 md:p-20"  href=" #">Teachers Information</a>
+      </div>
+      <div
+        class="bg-white flex justify-center rounded-[10px] hover:shadow-[0px_7px_3px_0px_#0010ff9e] shadow-[0px_0px_5px_0px_skyblue]">
+        <a class="p-10 md:p-20" href=" #">Teachers Information</a>
+      </div>
+      <div
+        class="bg-white flex justify-center rounded-[10px] hover:shadow-[0px_-6px_3px_yellow] shadow-[0px_0px_5px_0px_skyblue]">
+        <a class="p-10 md:p-20"  href=" #">Teachers Information</a>
+      </div>
+      <div
+        class="bg-white flex justify-center rounded-[10px] hover:shadow-[0px_7px_3px_0px_#0010ff9e] shadow-[0px_0px_5px_0px_skyblue] ">
+        <a class="p-10 md:p-20" href="#">Teachers Information</a>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $('#BarBTN').click(function () {
+        $('#menuBar').toggleClass('right-0 right-[-400px] opacity-100 opacity-0');
+      });
+      $('#CloseBTN').click(function () {
+        $('#menuBar').toggleClass('right-0 right-[-400px] opacity-0 opacity-100');
+      });
+
+      $('#teacherToogle').click(function () {
+        $('#teacherContent ').toggleClass('hidden ')
+        $('#teacherArrow').toggleClass('fa-angle-up');
+      })
+
+      $('#studentToogle').click(function () {
+        $('#studentArrow').toggleClass('fa-angle-up');
+        $('#studentContent ').toggleClass('hidden ')
+      })
+
+
+
+      $('#marks').click(function () {
+        $('#marksContent ').toggleClass('hidden ')
+        $('#marksArrow').toggleClass('fa-angle-up');
+      })
+    });
+  </script>
+</body>
+
+</html>

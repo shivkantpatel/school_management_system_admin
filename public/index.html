@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <nav class="bg-orange-300 p-3 md:flex md:justify-between flex items-center justify-between >
+    
+    <button><a href="#">school management</a></button>
+    <div>
+      <ul id="nav_menu" class="md:flex gap-2 z-[-1] md:static absolute md:items-center bg-orange-300 w-full left-0 md:pl-0 pl-4 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+        <li class="my-4">Teachers Master</li>
+        <li class="my-4">Student Master</li>
+        <li class="my-4">Feesh Master</li>
+        <li class="my-4">Studen Attendance MastER</li>
+        <li class="my-4">Teacher Attendance MastER</li>
+        
+      </ul>
+    </div>
+    <button class="md:hidden block hambar "><a href="#"> <i class="fa-solid fa-bars"></i></a></button>
+    
+  </nav>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <script>
+    $(document).ready(function(){
+
+      $('.hambar').click(function() {
+        $(this).toggleClass('active');
+        $(this).parent().find('i').toggleClass('fa-bars fa-xmark');
+        $('#nav_menu').toggleClass('opacity-0 top-[-400px] opacity-100 top-[48px]');
+        
+      });
+    });
+    
+  </script>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="">
+        <%-include('../header/headerBackToHome')%>
+    </div>
+    <a href="/teacherAllShow" class="rounded-[10%] border px-5 py-1 absolute md:left-4 top20 left-3"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="w-full pt-11">
+        <div class="w-[90%] m-auto  grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-5"> 
+
+        <%if(result.length > 0 ){%>     
+           <%result.forEach((v)=>{%>
+            <div class="border bg-[#fff] shadow-[0px_0px_10px_0px_#ddd] rounded-[5px]">
+                <div class="border h-48 object-cover m-3 rounded-[10px]">
+                    <img src="<%=v.photo%>" alt="hello"
+                    class="w-full h-full object-cover rounded-[10px]">
+                </div>
+                <div class="m-3 flex flex-row ">
+                    <p class="text-[#777777]"> Name : <span class="text-[#5b3fd8] font-semibold"><%=v.first_name%></span></p>
+                    <p class="pl-2"> <span class="text-[#5b3fd8] font-semibold"> <%=v.last_name%></span></p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]"> Gender : <span class="font-semibold text-yellow-600"> <%=v.gender%></p></span>
+                    <p class="text-[#777777]"> Qualification : <span class="font-semibold text-green-700"><%=v.qualification%></span> </p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]"> Specialization : <%=v.specialization%></p>
+                    <p class="text-[#777777]"> Subject :  <%=v.subject__%></p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]"> Email :  <span class=" text-red-700"><%=v.email%></span></p>
+                    <p class="text-[#777777]"> Mobile No : <span class=" text-b"><%=v.phone_number%></span> </p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]">Address : <%=v.address%></p>
+                    <p class="text-[#777777]">Permanent Pddress : <%=v.permanent_address%></p>
+                </div>
+                <div class="m-3">
+                    <p class="text-[#777777]">Hire Date : <span <span class="font-semibold text-red-600"><%=v.hire_date%></span></p>
+                    <p class="text-[#777777]"> Marital Status : <span <span class="font-semibold text-green-700"><%=v.marital_status%></span></p>
+                </div>
+            </div>
+          <% })%>
+
+          <%}else{%>
+            <div class="w-full  col-span-full  ">
+                <h1 class="text-red-600 font-semibold text-[40px] flex justify-center"> Data Not Found </h1>
+            </div>
+            
+
+        <%}%>
+           
+
+        </div>
+    </div>
+
+    
+</body>
+</html>

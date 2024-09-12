@@ -1,0 +1,127 @@
+
+
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Insert</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="">
+        <%-include('../header/headerBackToHome')%>
+    </div>
+    
+        <a href="/" class="rounded-[10%] border px-5 py-1 absolute md:left-4 top20 left-3"><i class="fa-solid fa-arrow-left"></i></a>
+    
+
+    <%let date = "" %>
+   <%if(validerrData  != null){%>
+       <% date = validerrData.attendance_date%>
+       
+   <%}%>
+    
+    <div class="bg-red w-full">
+        <div class="container w-full h-[92vh] flex justify-center items-center flex-col ">
+
+            <form action="/teacher_attendance" method="post" class="w-[60%] mt-5 flex md:flex-row flex-col gap-x-2 items-center  justify-center pb-7">
+                
+                <p class="text-red-700 font-bold"> Select Date </p>
+                   
+                <input class="md:w-[20%] w-[90%] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2" type="date" placeholder="Attendance Date" name="attendance_date" value="" id="dateValue">                  
+                <input class=" cursor-pointer text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-[12px] px-5 py-2.5 text-center me-2 mb-2transition transform ease-in-out duration-300 hover:scale-110 mt-1" type="submit" >
+                   
+            </form>
+            <p class="text-red-700  font-medium "><%=date%> </p>
+
+
+            <div class="container w-3/4 h-[60vh] ">
+
+                <div>
+                    <form action="/teacherSearch" method="post" class="w-full flex md:flex-row flex-col gap-5 justify-end  ">
+                   
+                        <input class="md:w-[25%] w-[98%] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 " type="text" placeholder="Search Teacher Id" name="teacher_id">
+                        
+                        
+                        <input class=" cursor-pointer md:w-[7%] w-[98%] text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-[12px] px-5 py-2.5 text-center me-2 mb-2transition transform ease-in-out duration-300 hover:scale-110" type="submit" >
+                        
+                    </form>
+                </div>
+                <div class="overflow-auto max-h-96 border border-gray-300 mt-3">
+                    <table class="min-w-full  divide-gray-200">
+                        <thead class="sticky top-0 bg-red-400 ">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Teacher Id</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Teacher Name</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Attendance Date</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Narration</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <%if(result.length >0){%>
+                                <%result.forEach((element)=>{%>
+                                    <tr>
+                                        <td class="px-6 py-4 "><%=element.teacher_code%></td>
+                                        <td class="px-6 py-4 "><%=element.first_name%></td>
+                                        <td class="px-6 py-4 "><%=element.attendance_date%></td>
+                                        <td class="px-6 py-4 flex justify-start"><button class="statusPAndA px-2 py-1 rounded-[5px]"><%=element.st_atus%></button></td>
+                                        <td class="px-6 py-4 "><%=element.narration%></td>
+                                    </tr>
+                                <% })%>
+
+                            <%}else{%>
+            
+                                <td colspan="6 " class="text-red-800 border p-2">No data found</td>
+            
+                            <%}%>    
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+
+            
+        </div>
+    </div>
+       
+    
+
+<script>
+   
+    let currentDate = new Date().toJSON().slice(0, 10); 
+    document.querySelector('#dateValue').value = currentDate ;
+    
+    let presentAbsents = document.querySelectorAll('.statusPAndA');
+
+    presentAbsents.forEach(presentAbsent => {
+        if (presentAbsent.innerText == "Present") {
+            presentAbsent.style.background = '#118966';
+            presentAbsent.style.color = 'white';
+            
+        }
+        if (presentAbsent.innerText == "Absent") {
+            presentAbsent.style.background = '#e60f43';
+            presentAbsent.style.color = 'white';
+        }
+    });
+
+    
+
+    
+</script>
+   
+    
+</body>
+</html>
+
+
+

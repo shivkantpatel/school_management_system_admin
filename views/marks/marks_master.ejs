@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="">
+    <%-include('../header/headerbackToHome')%>
+  </div>
+
+  <div class="w-full h-[92vh] bg-[#f0ecec39] flex items-center justify-center  ">
+
+    <div class="w-[60%] sm:h-[50%] h-[55%] md:rounded-xl md:border-2 flex lg:flex-row flex-col justify-center items-center rounded-lg shadow-[0px_0_6px_0px_#ddd;] ">
+      <div class="lg:w-[40%] w-full h-[100%]">
+        <img class="object-cover w-full h-full lg:rounded-l-[12px]"
+          src="https://t4.ftcdn.net/jpg/03/17/27/59/360_F_317275919_0Lmoy6CZqKyfErASnFJ2tatCtg18GVF6.jpg"
+          alt="loading...">
+      </div>
+
+      <div class="lg:w-[60%] w-full h-full flex items-center bg-white  lg:rounded-xl   ">
+        <form class="w-full sm:px-14 px-4 " action="/marks_Master_insert" method="post">
+          <div class="mb-2">
+
+            <input id="mm_id" name="mm_id" value="" type="hidden"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required />
+          </div>
+          <div class="mb-2">
+            <label class="block sm:mb-2 mb-1 text-sm font-medium text-gray-900 ">Select an option</label>
+            <select id="" name="exam_type"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option selected disabled>Choose a Exam Type</option>
+              <option value="Quarterly Exams">Quarterly Exams</option>KO
+              <option value="Half-Yearly Exams">Half-Yearly Exams</option>
+              <option value="Final Exams">Final Exams</option>
+            </select>
+          </div>
+
+          
+          <div>
+            <label  class="block sm:mb-2 mb-1 text-sm font-medium text-gray-900 ">Select an option</label>
+            <select id="" name="class_code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option selected disabled>Choose a Exam Type</option>
+              <option value="class1">class1</option>
+              <option value="class2">class2</option>
+              <option value="class3">class3</option>
+              <option value="class4">class4</option>
+            </select>
+          </div>
+
+
+          <div class="mb-2">
+            <label for="" class="block sm:mb-2 mb-1 text-sm font-medium text-gray-900 "> Date</label>
+            <input type="date" name="examDate"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-white dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required />
+          </div>
+
+
+
+
+          <div class="text-left">
+            <button type="submit"
+              class="my-3 lg:m-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+
+  <script>
+    let x = document.querySelector('#mm_id');
+    let digits = '0123456789';
+
+    for (let i = 0; i < 6; i++) {
+
+      x.value += digits[Math.floor(Math.random() * 10)]
+
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

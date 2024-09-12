@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="">
+        <%-include('../header/headerBackToHome')%>
+    </div>
+
+    <div class="w-[90%] m-auto mt-[6px] mb-[7px]">
+        <a href="/teacherAttendanceShow" class="rounded-[10%] border px-5 py-1"><i
+                class="fa-solid fa-arrow-left"></i></a>
+    </div>
+    <div class="container w-full h-[86vh] flex justify-center flex-col items-center">
+        <div class="container  w-3/4 h-[70vh] ">
+        <form action="/teacherAttendanceSubmit" method="post" class="overflow-auto max-h-96 border">
+
+            <table class="min-w-full  divide-gray-200">
+
+                <thead class="sticky top-0 bg-red-400 ">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Student
+                            Id</th>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            Student name</th>
+
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            Attendance date</th>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                            Narration</th>
+                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider flex justify-around">
+                            <span class="text-[18px]">P</span>
+                            <span class="text-[18px]">A</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <%if(result.length> 0){%>
+
+                        <%result.forEach((e)=>{ %>
+                            <tr>
+                                <td class="px-6 py-4 ">
+                                    <%=e.teacher_code%>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <%=e.first_name%>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <%=attendance_date%>
+                                </td>
+                                <td class="px-6 py-4"><input
+                                        class="w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 "
+                                        type="text" value="none" placeholder="Narration" name="narration[]"></td>
+                                <td class="px-6 py-4 flex justify-around gap-x-3">
+
+                                    <input type="radio" name="status__[]<%=e.teacher_code%>" value="Present" checked  class="form-radio h-4 w-4 text-indigo-600  transition duration-150 ease-in-out">
+                                    <input type="radio" name="status__[]<%=e.teacher_code%>" value="Absent" class="form-radio h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+
+
+                                    <input type="hidden" name="teacher_id[]" value="<%= e.teacher_code%>" id="">
+                                    <input type="hidden" name="attendance_date[]" value="<%= attendance_date%>" id="">
+
+
+                                </td>
+
+                            </tr>
+                            <%})%>
+
+
+                                <%}%>
+                </tbody>
+            </table>
+            <div class=" flex justify-end pt-7">
+                <input
+                    class=" cursor-pointer text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2transition transform ease-in-out duration-300 hover:scale-110 mb-3"
+                    type="submit">
+            </div>
+
+        </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

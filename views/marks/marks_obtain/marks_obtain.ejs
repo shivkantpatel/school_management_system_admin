@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="">
+        <%-include('../../header/headerbackToHome')%>
+    </div>
+
+    <div class="w-full bg-[#f0ecec39] ">
+        <div class="w-full bg-white border-b">
+            <div class="w-[70%] m-auto  flex items-center justify-center p-3 flex-col ">
+                <h1 class="  text-[22px] pb-6 font-medium text-center drop-shadow-[3px_4px_6px_#2563eb] text-[#d93c3c] " style="font-family: cursive;">Marks Entry</h1>
+
+                <!-- div is alert box -->
+                <div id="EmptyFieldalert" class="lg:w-72 sm:w-[70%] fixed top-[5%] right-[-40%] transform transition-all ease-in-out opacity-0  duration-300 bg-red-50
+                    flex items-center border p-4 mb-4 text-white border-t-4 border-red-300 dark:text-red-600  dark:border-red-800" >
+                     
+                   
+                </div>
+                
+                
+                    
+                    <div class="w-full gap-9 flex sm:flex-row flex-col items-center justify-center">
+                        <div class="mb-3  lg:w-[40%] md:w-[70%] w-[90%]">
+                            <label  class="block md:mb-2 mb-1 sm:text-sm text-[13px] font-medium text-black ">Enter MM No</label>
+                            <input type="number"  id="mm_no" name="mm_id" class="mm_no_validation_ bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0123456789" required />
+                        </div>
+                    </div>
+                    
+                                        
+                
+            </div>
+        </div>
+        <div class="w-[90%] m-auto bg-white h-[70vh] mb-10 shadow-[0px_0_3px_2px_#b0b0b0a6;] hidden opacity-0 " id="mmNoMatchSOshow">
+
+           
+            <form action="" id="stn_rool_no_form">
+
+                <div class="flex flex-row justify-center pt-7 gap-10 px-2 ">
+                    <div class="  md:w-[30%] w-[50%] ">
+                        <label for="selectRollNo" class="block md:mb-2 mb-1 text-[13px] md:text-[15px] font-medium text-gray-900 ">Select an option</label>
+                        <select id="selectRollNo" name="selectRollNo"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option selected disabled>Select Roll No</option>
+                          
+                        </select>
+                    </div>
+                    
+                    <div class=" md:w-[30%] w-[50%]">
+                        <label for="" class="block md:mb-2 mb-1 text-[13px] md:text-[15px] font-medium text-gray-900 "> Class</label>
+                        <input type="text" id="cla_ss" readonly class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" required />
+                    </div>
+                    
+
+                </div>
+
+               
+                
+
+            </form>
+
+            <div class="lg:w-[60%] md:w-[75%] sm:w-[85%]  w-full m-auto mt-7 h-[65%] overflow-auto  ">
+                <form action="" id="maskentryForm" class="md:p-10 p-4">
+
+                    
+
+                    <input type="hidden"  name="rollNo" value="" class="studentRollNo_Entry">
+                    
+                    <input type="hidden"  name="result_mm_no" value="" class="studentresult_mm_no">
+
+
+                    <table class="w-full h-full">
+                        <thead class="sticky top-0 border studentmaskThead">
+                            <tr class="">
+                                
+                                
+                               
+                            </tr>
+                        </thead>
+                        <tbody class="border mark_obtain_tbody ">
+   
+                           
+                        </tbody>
+
+                        <tfoot class="TableTfoter"></tfoot>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="../../../ajaxfile/marks/marks_obtain.js"></script> -->
+
+    <script src="../../../ajaxfile/marks/marks_obtain_1.js"></script>
+
+</body>
+</html>

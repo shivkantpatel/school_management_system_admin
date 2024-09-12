@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="">
+        <%-include('../../header/headerBackToHome')%>
+    </div>
+
+
+    <div class="w-[90%] m-auto mt-[6px] mb-[7px]">
+        <a href="#" class="rounded-[10%] border px-5 py-1"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+
+
+    <div class="w-full">
+        <div class="container w-full h-[86vh] flex justify-center flex-col items-center">
+
+        
+            <div class="container  w-3/4 h-[70vh] ">
+                <div class="overflow-auto max-h-96 border ">
+                    <form action="" method="post" class="">
+                        
+                            <table class="min-w-full  divide-gray-200">
+                                <thead class="sticky top-0 bg-red-400 ">
+                                    <tr>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">Student Id</th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                             name</th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            class</th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            tuition fee</th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            library fee </th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            sports fee</th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            transportation fee </th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            building fund</th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            extra curricular fee</th>
+                                        <th class="px-6 py-4 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                            total fee </th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <%if(result.length > 0){%>
+
+                                        <%result.forEach((e)=>{ %>
+                                            <tr>
+                                            <td class="px-6 py-4 "><%=e.student_rollNo%></td>
+                                            <td class="px-6 py-4 "><%=e.student_name%></td>
+                                            <td class="px-6 py-4 "><%=e.Class%></td>
+                                            <td class="px-6 py-4 "><%=e.tuition_fee%></td>
+                                            <td class="px-6 py-4 "><%=e.library_fee%></td>
+                                            <td class="px-6 py-4 "><%=e.sports_fee%></td>
+                                            <td class="px-6 py-4 "><%=e.transportation_fee%></td>
+                                            <td class="px-6 py-4 "><%=e.building_fund%></td>
+                                            <td class="px-6 py-4 "><%=e.extra_curricular_fee%></td>
+                                            <td class="px-6 py-4 text-green-600 font-semibold"><%=e.total_fee%></td>
+                                           
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                        <%})%>
+                                    
+
+                                    <%}else{%>
+
+                                        <td class="text-red-600   px-6 py-4">Data Not found</td>
+                                    <%}%>
+                                </tbody>
+                            </table>
+                            <div class="flex justify-end p-3 fixed top-[45%] left-[60%] md:static ">
+                                <input 
+                                    class="cursor-pointer text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 transition transform ease-in-out duration-300 hover:scale-110 mb-3" 
+                                    type="submit">
+                            </div>
+                            
+                            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

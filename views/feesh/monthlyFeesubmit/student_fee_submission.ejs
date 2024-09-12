@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fee submission</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+
+    <div class="">
+        <%-include('../../header/headerBackToHome')%>
+    </div>
+
+    
+
+    <div class="flex flex-row items-center justify-center h-[92vh]  ">
+
+        <div class="w-[60%] flex flex-col md:flex-row justify-center rounded-xl bg-white ">
+            <div class="md:w-[50%] w-full  rounded-xl">
+                <img src="https://img.freepik.com/free-vector/tiny-college-university-students-making-loan-take-degree-male-female-character-near-books-paying-money-tuition-fee-school-flat-vector-illustration-economy-education-finance-system_74855-22057.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1723420800&semt=ais_hybrid"
+                    alt="loading..." class="h-[244px] w-full rounded-xl">
+            </div>
+            <div class=" md:w-[50%] w-full  rounded-xl">
+                <form method="post" class="flex flex-col gap-4 p-[20px]" id="feesubMISSION">
+                    <div class="">
+                        <label for=" first_name"
+                            class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">Enter
+                            Roll No </label>
+                        <input type="text" id="first_name " name="studentRollno" id=""
+                            class="studentrollnum bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Roll No" />
+                        <p class="text-red-600" id="studentrollno">
+
+                        </p>
+                    </div>
+                    <div>
+                        <label for="last_name" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">
+                            Select Class</label>
+                        <select id="" name="studentClass"
+                            class="Class_selected bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected disabled>Select Class</option>
+                            <option value="class1">class1</option>
+                            <option value="class 2">class 2</option>
+
+                        </select>
+                        <p class="text-red-600" id="studentclass">
+
+                        </p>
+
+                    </div>
+
+                    <div class="flex sm:flex-row flex-col justify-between">
+
+                        <div class="sm:w-[45%] w-full">
+                            <label for="last_name" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">
+                                From Month</label>
+                            <select id="" name="monthlyFeeFrom"
+                                class="monthlyFeeFrom bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected disabled>Select Month</option>
+                                <option value="January" selected>January</option>
+                                <option value="February">February</option>
+                                <option value="January">March</option>
+                                <option value="April">April</option>
+
+                            </select>
+                        </div>
+                        <div class="sm:w-[45%] w-full">
+                            <label for="last_name" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">
+                                To Select Month</label>
+                            <select id="" name="monthlyFeeTo"
+                                class="monthlyFeeTo bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected disabled>Select Month</option>
+                                <option value="January" selected>January</option>
+
+                                <option value="February">February</option>
+                                <option value="January">March</option>
+                                <option value="April">April</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <button id="studentfeesubmit"
+                            class=" cursor-pointer float-end text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+        <div class=" animate__animated absolute w-[90%]  md:w-[70%] h-[80vh] lg:h-[69%] bg-[#fff] shadow-[inset_0px_0px_8px_0px_#E3F2FD] rounded-lg border  top-[-650px] transform transition-all duration-500 ease-in-out opacity-0 scale-90"
+            id="studentmodel">
+            <a href="#"><i class="text-red-600 fa-solid fa-x float-end p-3 font-extrabold text-[18px]"
+                    id="studentclosebtn"></i></a>
+
+            <div class="w-[90%]  m-auto mt-12   overflow-auto h-[85%] ">
+                <div class=" ">
+
+                    <form id="stnform" method="post" >
+
+                        <div class=" grid grid-cols-2 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-3">
+
+                            <div>
+                                <p class="text-red-600 md:text-[15px] text-[12px]">Roll No</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Roll No" name="Roll_No" id="Roll_No" readonly>
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]">Name</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Name" name="stnName" id="stnName" readonly>
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]">Father Name</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Father Name" name="Father_Name" id="Father_Name" readonly>
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]">Class</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Class" name="Class" readonly id="Class">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]">Tuition Fee</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Tuition Fee" name="Tuition_Fee" id="Tuition_Fee">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]"> Library Fee</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder=" Library Fee" name="Library_Fee" readonly id="Library_Fee">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]">Sports Fee</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Sports Fee" name="Sports_Fee" readonly id="Sports_Fee">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]"> Transportation Fee</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Transportation Fee" name="Transportation_Fee" readonly
+                                    id="Transportation_Fee">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777] ">Building Fund</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Building Fund " name="Building_Fund" readonly
+                                    id="Building_Fund">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]">Extra Curricular fee</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Extra Curricular Fee" name="Extra_Curricular_fee"
+                                    id="Extra_Curricular_fee" readonly>
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#777777]">Month Fee</p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-[#2563EB] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Month Fee" name="Month_Fee" id="Month_Fee" readonly>
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-red-600 ">Penalty </p>
+                                <input value="0"
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-red-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition "
+                                    type="text" placeholder="Penalty" name="Penalty" id="Penalty">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-green-600 font-bold">Total Fee </p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition  "
+                                    type="text" placeholder="Total Fee " name="Total_Fee" readonly id="Total_Fee">
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-[#111111] ">payment Mode </p>
+                                <select id="" name="paymentMode"
+                                    class="paymentMode bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  dark:bg-gray-700 p-2 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected disabled>Select payment Mode</option>
+
+
+                                    <option value="upi">UPI</option>
+                                    <option value="Card">Debit & Credit Card</option>
+                                    <option value="cash">Cash</option>
+
+                                </select>
+                                <p class="md:text-[15px] text-[12px] text-[#eb3737] paymentModeValidation "> </p>
+                                
+                                <div
+                                    class=" hidden stnCardPayment absolute top-[19%] left-[45%] translate-x-[-50%] translate-y-[-50%] h-[35vh] w-[70%] md:w-[50%] bg-[#fff] shadow-[inset_0px_0px_8px_0px_#E3F2FD] rounded-lg border opacity-0 p-5 ">
+
+                                   
+                                    
+                                </div>
+
+                            </div>
+                            <div>
+                                <p class="md:text-[15px] text-[12px] text-green-600 font-bold">After Penalty </p>
+                                <input
+                                    class="w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-green-600 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 transition  "
+                                    type="text" placeholder="After Penalty " name="afterPenalty"  id="afterPenalty">
+                            </div>
+                            <div class="col-span-full pb-1 pr-2" >
+                               
+
+                                    <button type="button" class=" text-gray-900  py-2 px-4 rounded shadow-md transition duration-300 ease-in-out studentbtnDisableAndEn float-end uppercase"  id="stnFeeSubmission" disabled>Submit</button>
+
+
+                            </div>
+                           
+
+
+                           
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../../../ajaxfile/monthlyFee/montlyFee1.js"></script>
+
+    <script src="../../../ajaxfile/monthlyFee/stnMonthlyFeeSubmission.js"></script>
+</body>
+
+</html>
