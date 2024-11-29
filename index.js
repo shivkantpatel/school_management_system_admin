@@ -5,6 +5,8 @@ const app = express();
 const bodyParser = require ('body-parser');
 const multer = require('multer');
 const { body, validationResult } = require('express-validator');
+ const dt= require ('dotenv')
+dt.config()
 
 
 app.set('view engine','ejs');
@@ -591,4 +593,4 @@ app.get('/headerloginLogout',(req,res)=>{
     res.render('headerLoginLogout/header')
 })
 
-app.listen(6100)
+app.listen( process.env.PORT || 6100)
