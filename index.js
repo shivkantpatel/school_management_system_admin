@@ -7,7 +7,7 @@ const multer = require('multer');
 const { body, validationResult } = require('express-validator');
  const dt= require ('dotenv')
 dt.config()
-
+app.use("/*", cors());
 
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended : true}));
