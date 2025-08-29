@@ -77,8 +77,8 @@ $(document).ready(function () {
                $('#Building_Fund').val(element.building_fund);
                $('#Extra_Curricular_fee').val(element.extra_curricular_fee);
             //    $('#Penalty').val(element.student_rollNo);
-               $('#Total_Fee').val(element.extra_curricular_fee);
-               $('#afterPenalty').val(element.extra_curricular_fee);
+               $('#Total_Fee').val(element.total_fee);
+               $('#afterPenalty').val(element.total_fee);
 
                 
                 

@@ -12,7 +12,6 @@ dt.config()
 app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-
 const publicPath = path.join(__dirname,'public');
 app.use(express.static('uploads'));
 app.use('/ajaxfile', express.static(path.join(__dirname, 'ajaxfile')));
