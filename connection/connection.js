@@ -6,7 +6,7 @@ let connection = mysql.createConnection({
     user: 'root',
     port: 26525,                            // ✅ Correct Railway port
     password: 'sLNcmhAoURrTLIVBfvwORoezBHfJaaWe',
-    database: 'railway'
+    database: 'school_management_system'
 });
 
 
