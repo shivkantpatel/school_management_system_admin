@@ -1,10 +1,12 @@
-const mysql2 = require('mysql2');
+const mysql = require('mysql2');
 
-let connecton =  mysql2.createConnection({
-    host:'localhost',
-    user: 'root',
-    password:'Shivkant77@',
-    database:'school_management_system'
-})
+let connection = mysql.createConnection({
+    host:'mysql.railway.internal',
+    user:'root',
+    port: 3306,
+    password:'sLNcmhAoURrTLIVBfvwORoezBHfJaaWe',
+    database:'railway'   
+});
 
-module.exports = connecton
+
+module.exports = connection
