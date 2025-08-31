@@ -116,7 +116,7 @@ app.post('/teacherInsertData', upload.single('photo'),teacherDataValidation,(req
 
 app.get('/teacherAllShow',(req,res)=>{
 
-    let query = 'select * my_local_db.from teachers_mast '
+    let query = 'select * from teachers_mast '
     conn.query(query,(err , result)=>{
         if(err) throw err
         res.render('teacher/teacherAllDataShow' , {result})
