@@ -8,8 +8,6 @@ const { body, validationResult } = require('express-validator');
  const dt= require ('dotenv')
 dt.config()
 const cors = require('cors')
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors())
 
 app.set('view engine','ejs');
@@ -286,12 +284,18 @@ app.post('/feeshMasterInertData',feesValidaionData,(req,res)=>{
 app.get('/teacherAttendanceShow',(req,res)=>{
 
    let validerrData = req.query;
+
+  
+   
     conn.connect((err)=>{
 
         let towTableCombineSqlQuelry = 'select tm.teacher_code , tm.first_name ,ta.st_atus,ta.attendance_date,ta.narration from teachers_mast as tm INNER JOIN teacher_attendance_mast AS ta ON tm.teacher_code = ta.teacher_id';
 
         conn.query(towTableCombineSqlQuelry,(err,result)=>{
+
+            console.log(result)
             if(err){
+                console.log(err)
                 return res.json({error:err})
             }
             res.render('teacher_attendance/teacherAtt_Show_data',{result,validerrData})
@@ -359,15 +363,18 @@ app.post('/teacher_attendance',validaionTeacher,(req,res)=>{
         
     }
     const { attendance_date}  = req.body;
+    console.log(attendance_date);
+    
    
-    let query = 'SELECT DISTINCT teacher_id   FROM teacher_attendance_mast ';
-    let towTableCombineSqlQuelry = 'select distinct tm.teacher_code , tm.first_name  from teachers_mast as tm INNER JOIN teacher_attendance_mast AS ta ON tm.teacher_code = ta.teacher_id';
+    // let query = 'SELECT DISTINCT teacher_id FROM teacher_attendance_mast ';
+    let towTableCombineSqlQuelry = 'select DISTINCT tm.teacher_code , tm.first_name  from teachers_mast as tm INNER JOIN teacher_attendance_mast AS ta ON tm.teacher_code = ta.teacher_id';
     conn.query(towTableCombineSqlQuelry, (err, result) => {
         if (err) {
             console.error('Error executing query:', err);
             res.status(500).send('Error executing query');
             return;
         }
+        
         res.render('teacher_attendance/teacher_Attendance', { result ,attendance_date});
     });
 
@@ -416,6 +423,9 @@ app.post('/teacherSearch',(req,res)=>{
 
 app.get('/studentAttendanceShow',(req,res)=>{
 
+    // console.log('helloworld');
+    
+
     let errData = req.query
     conn.connect((err)=>{
         if(err){
@@ -427,7 +437,9 @@ app.get('/studentAttendanceShow',(req,res)=>{
         INNER JOIN student_attendance_mast sdm ON sm.student_rollNo = sdm.student_id;
         `
         conn.query(attendancequery,(err,result)=>{
+            console.log(result);
             
+
             if(err){
                 return res.json({error:err})
             }
@@ -458,6 +470,8 @@ let st_udent_attendance = require('./allFunction/studentAttendance/studentValida
 
 app.post('/student_attendance',st_udent_attendance,(req,res)=>{
 
+    console.log('helooo');
+    
     let error = validationResult(req);
     if(!error.isEmpty()){
 
@@ -472,6 +486,10 @@ app.post('/student_attendance',st_udent_attendance,(req,res)=>{
     
     const { cla_ss}  = req.body;
     const { attendance_date}  = req.body;
+
+    // console.log(cla_ss ,attendance_date );
+    
+
     
     const attendancequery = `
     SELECT DISTINCT sm.student_rollNo, sm.student_name , sdm.cla_ss
@@ -486,8 +504,7 @@ app.post('/student_attendance',st_udent_attendance,(req,res)=>{
             res.status(500).send('Error executing query');
             return;
         }
-        console.log(result);
-        
+       
         res.render('student_attendance/student_Attendance', { result ,attendance_date});
         
         
