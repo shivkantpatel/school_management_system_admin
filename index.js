@@ -169,7 +169,7 @@ app.post('/studentDataInsert', upload.single('img'),studentFormValidation,(req,r
     }
 
 
-    console.log(req.file.originalname);
+    // console.log(req.file.originalname);
     const {Student_Roll_No , Student_Name , Father_Name , Mother_Name ,gender, Date_OF_Birth , Class , Section , Email , father_mobile_no , mother_mobile_no ,Password} = req.body
 
     const img = req.file.originalname

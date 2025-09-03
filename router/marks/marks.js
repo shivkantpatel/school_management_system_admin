@@ -86,7 +86,6 @@ router.post('/subject_master_insert_',(req,res)=>{
 
 
 
-
 router.get('/class_subject_add',(req,res)=>{
 
     conn.query('select subject_name from subject_Master',(err,result)=>{
