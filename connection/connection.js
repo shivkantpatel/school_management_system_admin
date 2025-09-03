@@ -1,7 +1,8 @@
 
-const mysql = require('mysql2');
+// const mysql = require('mysql2');
+const { Pool } = require('pg');
 
-let connection = mysql.createConnection({
+let connection = new Pool({
 
     host: 'dpg-d2rtv9jipnbc73e0gil0-a',           // ✅ Correct Railway host
     user: 'school_management_system',
